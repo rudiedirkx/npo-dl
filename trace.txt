@@ -1,0 +1,6 @@
+
+1. http://tegenlicht.vpro.nl/afleveringen/2015-2016/ttip.html
+2. media-id => VPWON_1232887
+3. mediaPath => media/VPWON_1232887
+4. mediaURL => https://rs.poms.omroep.nl/v1/api/media/VPWON_1232887
+5.

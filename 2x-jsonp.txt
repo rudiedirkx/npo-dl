@@ -1,0 +1,31 @@
+http://ida.omroep.nl/odi/?prid=VPWON_1232887&puboptions=adaptive,h264_bb,h264_sb,h264_std&adaptive=yes&part=1&token=lnf9459bc3fogctrn54clkfrr2&callback=jQuery17207427555376198143_1444581952179&version=6.0.0&_=1444581957767
+
+jQuery17207427555376198143_1444581952179({
+    "success": true,
+    "streams": [{
+        "file": "http:\/\/odi.omroep.nl\/video\/ida\/adaptive\/4c4fdd5ffe4470932a47b185db3d0756\/561a9244\/VPWON_1232887\/1?extension=m3u8&type=jsonp&callback=?",
+        "type": "adaptive",
+        "quality": "adaptive",
+        "label": "Adaptive"
+    }],
+    "family": "adaptive"
+})
+
+
+
+
+
+
+
+http://odi.omroep.nl/video/ida/adaptive/4c4fdd5ffe4470932a47b185db3d0756/561a9244/VPWON_1232887/1?extension=m3u8&type=jsonp&callback=jQuery17207427555376198143_1444581952180&_=1444581957841
+
+jQuery17207427555376198143_1444581952180({
+    "errorcode": 0,
+    "family": "adaptive",
+    "path": "\/lmshieldv2\/3\/vpro\/rest\/2015\/VPWON_1232887\/VPWON_1232887.ism\/VPWON_1232887.m3u8",
+    "protocol": "http",
+    "server": "l24m6002906c2a00561a9244000000.ad6eb4b89418a811.adaptive-e50c1a.npostreaming.nl",
+    "wait": 0,
+    "url": "http:\/\/l24m6002906c2a00561a9244000000.ad6eb4b89418a811.adaptive-e50c1a.npostreaming.nl\/lmshieldv2\/3\/vpro\/rest\/2015\/VPWON_1232887\/VPWON_1232887.ism\/VPWON_1232887.m3u8"
+})
+

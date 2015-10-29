@@ -1,0 +1,14 @@
+
+http://tegenlicht.vpro.nl/afleveringen/2015-2016/ttip.html
+http://l24m03c630a8d200561a8912000000.0e98850ccc5f1ef3.adaptive-e10c1a.npostreaming.nl/lmshieldv2/3/vpro/rest/2015/VPWON_1232892/VPWON_1232892.ism/VPWON_1232892.m3u8
+http://l24m03c630a8d200561a8912000000.0e98850ccc5f1ef3.adaptive-e10c1a.npostreaming.nl/lmshieldv2/3/vpro/rest/2015/VPWON_1232892/VPWON_1232892.ism/VPWON_1232892-audio_eng=65000-video=200000.m3u8
+http://l24m03c630a8d200561a8912000000.0e98850ccc5f1ef3.adaptive-e10c1a.npostreaming.nl/lmshieldv2/3/vpro/rest/2015/VPWON_1232892/VPWON_1232892.ism/VPWON_1232892-audio_eng=128000-video=500000.m3u8
+http://l24m03c630a8d200561a8912000000.0e98850ccc5f1ef3.adaptive-e10c1a.npostreaming.nl/lmshieldv2/3/vpro/rest/2015/VPWON_1232892/VPWON_1232892.ism/VPWON_1232892-audio_eng=128000-video=699000.m3u8
+http://l24m03c630a8d200561a8912000000.0e98850ccc5f1ef3.adaptive-e10c1a.npostreaming.nl/lmshieldv2/3/vpro/rest/2015/VPWON_1232892/VPWON_1232892.ism/VPWON_1232892-audio_eng=128000-video=999000.m3u8
+http://l24m03c630a8d200561a8912000000.0e98850ccc5f1ef3.adaptive-e10c1a.npostreaming.nl/lmshieldv2/3/vpro/rest/2015/VPWON_1232892/VPWON_1232892.ism/VPWON_1232892-audio_eng=128000-video=999000-1.ts
+http://l24m03c630a8d200561a8912000000.0e98850ccc5f1ef3.adaptive-e10c1a.npostreaming.nl/lmshieldv2/3/vpro/rest/2015/VPWON_1232892/VPWON_1232892.ism/VPWON_1232892-audio_eng=128000-video=999000-2.ts
+
+
+
+http://www.dailymotion.com/video/x2glkzu
+http://proxy-010.dc3.dailymotion.com/sec(fd277c3bfd3e22d343d4f9821b7994e8)/frag(8)/video/491/318/148813194_mp4_h264_aac_hd.ts

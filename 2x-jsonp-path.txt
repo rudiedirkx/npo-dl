@@ -1,0 +1,11 @@
+http://tegenlicht.vpro.nl/afleveringen/2015-2016/ttip.html
+VPWON_1232892
+http://ida.omroep.nl/odi/?prid=VPWON_1232892&puboptions=adaptive,h264_bb,h264_sb,h264_std&adaptive=yes&part=1&token=lnf9459bc3fogctrn54clkfrr2&callback=jQuery17207427555376198143_1444581952179&version=6.0.0&_=1444581957767
+http://odi.omroep.nl/video/ida/adaptive/1c1970892e2c5d68c76acf595a0c12d0/561a9570/VPWON_1232892/1?extension=m3u8&type=jsonp&callback=jQuery17207427555376198143_1444581952179
+
+
+
+
+http://tegenlicht.vpro.nl/afleveringen/2015-2016/de-klimaatzaak.html
+VPWON_1232887
+http://ida.omroep.nl/odi/?prid=VPWON_1232887&puboptions=adaptive,h264_bb,h264_sb,h264_std&adaptive=yes&part=1&token=lnf9459bc3fogctrn54clkfrr2&callback=jQuery17207427555376198143_1444581952179&version=6.0.0&_=1444581957767
