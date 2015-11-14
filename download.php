@@ -2,9 +2,10 @@
 
 $cacheDir = __DIR__ . '/cache/';
 $regexes = array(
-	'tegenlicht' => '#(\d+\-)(\d+)(\.ts)#',
-	'dwdd' => '#(\d+\-)(\d+)(\.ts)#',
-	'dailymotion' => '#(frag\()(\d+)(\))#',
+	'tegenlicht' => '#(\d+\-)(\d+)(\.ts)#',	// Tegenlicht
+	'dwdd' => '#(\d+\-)(\d+)(\.ts)#',		// De Wereld Draait Door
+	'dailymotion' => '#(frag\()(\d+)(\))#',	// DailyMotion
+	'fevdw' => '#(\d+\-)(\d+)(\.ts)#',		// Floortje naar het Einde Van De Wereld
 );
 
 $type = @$_SERVER['argv'][1];
