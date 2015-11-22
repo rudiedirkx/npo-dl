@@ -6,6 +6,7 @@ $regexes = array(
 	'dwdd' => '#(\d+\-)(\d+)(\.ts)#',		// De Wereld Draait Door
 	'dailymotion' => '#(frag\()(\d+)(\))#',	// DailyMotion
 	'fevdw' => '#(\d+\-)(\d+)(\.ts)#',		// Floortje naar het Einde Van De Wereld
+	'fvila' => '#(\d+\-)(\d+)(\.ts)#',		// Freek Vonk In Latijns-Amerika
 );
 
 $type = @$_SERVER['argv'][1];
@@ -25,7 +26,7 @@ echo "$base\n\n";
 $ua = @$_SERVER['HTTP_USER_AGENT'] ?: 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36';
 
 $chunkCacheDir = $cacheDir . sha1($base) . '/';
-if ( !@mkdir($chunkCacheDir) ) {
+if ( !is_dir($chunkCacheDir) && !@mkdir($chunkCacheDir) ) {
 	exit("Can't create chunk cache dir\n");
 }
 
@@ -73,17 +74,16 @@ for ( $i = 1; $i <= 500; $i++ ) {
 echo "\n\nCombining into one .ts file...\n\n";
 
 $videoFile = preg_replace('#\.ts$#', '', $name) . '.ts';
+$progress = '';
 foreach ($chunks as $i => $chunkFile) {
 	file_put_contents($cacheDir . $videoFile, file_get_contents($chunkCacheDir . $chunkFile), FILE_APPEND);
 
 	// Backspace old progress
-	if ( $i > 0 ) {
-		echo str_repeat(chr(8), 11);
-	}
+	echo str_repeat(chr(8), strlen($progress));
 
 	// Print new progress
 	$done = round(($i+1) / count($chunks)* 100);
-	echo 'Done: ' . sprintf('% 3d %%', $done);
+	echo $progress = 'Compiling... ' . sprintf('% 3d %%', $done);
 }
 
 echo "\n\nREADY: $videoFile\n\n";
