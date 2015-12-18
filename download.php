@@ -30,10 +30,18 @@ if ( !is_dir($chunkCacheDir) && !@mkdir($chunkCacheDir) ) {
 	exit("Can't create chunk cache dir\n");
 }
 
+echo $chunkCacheDir . "\n\n";
+
 $chunks = [];
 for ( $i = 1; $i <= 500; $i++ ) {
 	$url = str_replace('%%%', $i, $base);
-	$cacheFile = sha1($url) . '.ts';
+	$_file = sha1($url) . '.ts';
+	$cacheFile = sprintf('%04d_%s', $i, $_file);
+
+	// Rewrite old filename to new filename
+	if ( file_exists($chunkCacheDir . $_file) ) {
+		rename($chunkCacheDir . $_file, $chunkCacheDir . $cacheFile);
+	}
 
 	$status = 'cached';
 	if ( !file_exists($chunkCacheDir . $cacheFile) ) {
@@ -74,16 +82,32 @@ for ( $i = 1; $i <= 500; $i++ ) {
 echo "\n\nCombining into one .ts file...\n\n";
 
 $videoFile = preg_replace('#\.ts$#', '', $name) . '.ts';
-$progress = '';
-foreach ($chunks as $i => $chunkFile) {
-	file_put_contents($cacheDir . $videoFile, file_get_contents($chunkCacheDir . $chunkFile), FILE_APPEND);
+$_start = microtime(1);
 
-	// Backspace old progress
-	echo str_repeat(chr(8), strlen($progress));
+// Use file_(get|put)_contents()
+// $progress = '';
+// foreach ($chunks as $i => $chunkFile) {
+// 	file_put_contents($cacheDir . $videoFile, file_get_contents($chunkCacheDir . $chunkFile), FILE_APPEND);
+// 	// Backspace old progress
+// 	echo str_repeat(chr(8), strlen($progress));
+// 	// Print new progress
+// 	$done = round(($i+1) / count($chunks)* 100);
+// 	echo $progress = 'Compiling... ' . sprintf('% 3d %%', $done);
+// }
 
-	// Print new progress
-	$done = round(($i+1) / count($chunks)* 100);
-	echo $progress = 'Compiling... ' . sprintf('% 3d %%', $done);
-}
+// Use commandline `cat`
+// $infiles = implode(' ', array_map(function($chunkFile) use ($chunkCacheDir) {
+// 	return $chunkCacheDir . $chunkFile;
+// }, $chunks));
+// $outfile = $cacheDir . $videoFile;
+// $cmd = 'cat ' . $infiles . ' > ' . $outfile;
+// exec($cmd);
+
+// Use commandline `cat` smarter, with filename order
+$outfile = $cacheDir . $videoFile;
+$cmd = 'cat ' . $chunkCacheDir . '/*.ts > ' . $outfile;
+exec($cmd);
+
+echo "\n\nCompiled in " . round(microtime(1) - $_start) . " sec.\n\n";
 
 echo "\n\nREADY: $videoFile\n\n";
