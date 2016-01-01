@@ -1,0 +1,17 @@
+http://ida.omroep.nl/npoplayer/i.js?s=http%3A%2F%2Fwww.npo.nl%2Ffloortje-naar-het-einde-van-de-wereld%2F15-01-2015%2FBNN_101372381
+
+(function(npoplayer){ npoplayer.token = "0a8d70o861lalg1tkne8sjbrr6"; }(npoplayer));
+
+
+
+http://ida.omroep.nl/odi/?prid=BNN_101372381&puboptions=adaptive,h264_bb,h264_sb,h264_std&adaptive=yes&part=1&token=33v0000q1as6rl6ccm0s6qfkt3&callback=jQuery18308337543795350939_1448812643015&version=6.0.0&_=1448812643698
+
+jQuery18308337543795350939_1448812643015({"success":true,"streams":[{"file":"http:\/\/odi.omroep.nl\/video\/ida\/adaptive\/eaed27c07dd6902179d7de1ddc9263f8\/565b2062\/BNN_101372381\/1?extension=m3u8&type=jsonp&callback=?","type":"adaptive","quality":"adaptive","label":"Adaptive"}],"family":"adaptive"})
+
+
+
+http://odi.omroep.nl/video/ida/adaptive/eaed27c07dd6902179d7de1ddc9263f8/565b2062/BNN_101372381/1?extension=m3u8&type=jsonp&callback=jQuery18308337543795350939_1448812643015&_=1448812643763
+
+jQuery18308337543795350939_1448812643015({"errorcode":0,"family":"adaptive","path":"\/lmshieldv2\/3\/bnn\/rest\/2015\/BNN_101372381\/BNN_101372381.ism\/BNN_101372381.m3u8","protocol":"http","server":"l24m0e6ff0b2c400565b2062000000.9888cc164661f700.adaptive-e50c1b.npostreaming.nl","wait":0,"url":"http:\/\/l24m0e6ff0b2c400565b2062000000.9888cc164661f700.adaptive-e50c1b.npostreaming.nl\/lmshieldv2\/3\/bnn\/rest\/2015\/BNN_101372381\/BNN_101372381.ism\/BNN_101372381.m3u8"})
+
+http://l24m0e6ff0b2c400565b2062000000.9888cc164661f700.adaptive-e50c1b.npostreaming.nl/lmshieldv2/3/bnn/rest/2015/BNN_101372381/BNN_101372381.ism/BNN_101372381.m3u8

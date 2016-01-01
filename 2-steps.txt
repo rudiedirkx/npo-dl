@@ -1,0 +1,31 @@
+<URL> = http://www.npo.nl/floortje-naar-het-einde-van-de-wereld/15-01-2015/BNN_101372381
+<PRID> = basename(<URL>)
+
+1. http://npoplayer.omroep.nl/csjs/npoplayer-min.js
+2. Extract version: npoplayer.version='<VERSION>';
+
+3. http://ida.omroep.nl/npoplayer/i.js?s=<URL>
+4. Extract token: npoplayer.token = "<TOKEN>";
+
+5. http://ida.omroep.nl/odi/?prid=<PRID>&puboptions=adaptive,h264_bb,h264_sb,h264_std&adaptive=yes&part=1&token=<TOKEN>&callback=jQuery18308337543795350939_1448812643015&version=<VERSION>&_=1448812643698
+6. Extract file from JSON(P): `streams[0].file`
+   <FILE> = http://odi.omroep.nl/video/ida/adaptive/eaed27c07dd6902179d7de1ddc9263f8/565b2062/BNN_101372381/1?extension=m3u8&type=jsonp&callback=jQuery18308337543795350939_1448812643015&_=1448812643763
+
+7. <FILE>
+		8. Extract server from JSON(P): `server`
+		   <SERVER> = l24m0e6ff0b2c400565b2062000000.9888cc164661f700.adaptive-e50c1b.npostreaming.nl
+9. Extract url from JSON(P): `url`
+   <M3U8> = http://l24m0e6ff0b2c400565b2062000000.9888cc164661f700.adaptive-e50c1b.npostreaming.nl/lmshieldv2/3/bnn/rest/2015/BNN_101372381/BNN_101372381.ism/BNN_101372381.m3u8
+
+10. Download playlist: <M3U8>
+11. Find highest resolution: `RESOLUTION=608x342`
+12. Find playlist path
+    <PLAYLIST> = BNN_101372381-audio_eng=128000-video=1000000.m3u8
+
+13. Download playlist: pathname(<M3U8>) + <PLAYLIST>
+    http://l24m4a3b7cb87100565b2419000000.a4f0a9fbbf7e7895.adaptive-e50c1b.npostreaming.nl/lmshieldv2/3/bnn/rest/2015/BNN_101372381/BNN_101372381.ism/BNN_101372381-audio_eng=128000-video=1000000.m3u8
+14. Find all `.ts` files: <PATH>
+    BNN_101372381-audio_eng=128000-video=1000000-1.ts
+
+15. Download all `.ts` files: pathname(<M3U8>) + <PATH>
+    http://l24m4a3b7cb87100565b2419000000.a4f0a9fbbf7e7895.adaptive-e50c1b.npostreaming.nl/lmshieldv2/3/bnn/rest/2015/BNN_101372381/BNN_101372381.ism/BNN_101372381-audio_eng=128000-video=1000000-1.ts
