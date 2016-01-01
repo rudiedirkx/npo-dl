@@ -2,11 +2,12 @@
 
 $cacheDir = __DIR__ . '/cache/';
 $regexes = array(
-	'tegenlicht' => '#(\d+\-)(\d+)(\.ts)#',	// Tegenlicht
-	'dwdd' => '#(\d+\-)(\d+)(\.ts)#',		// De Wereld Draait Door
-	'dailymotion' => '#(frag\()(\d+)(\))#',	// DailyMotion
-	'fevdw' => '#(\d+\-)(\d+)(\.ts)#',		// Floortje naar het Einde Van De Wereld
-	'fvila' => '#(\d+\-)(\d+)(\.ts)#',		// Freek Vonk In Latijns-Amerika
+	'dailymotion' => '#(frag\()(\d+)(\))#',   // DailyMotion
+	'tegenlicht'  => '#(\d+\-)(\d+)(\.ts)#',  // Tegenlicht
+	'dwdd'        => '#(\d+\-)(\d+)(\.ts)#',  // De Wereld Draait Door
+	'fevdw'       => '#(\d+\-)(\d+)(\.ts)#',  // Floortje naar het Einde Van De Wereld
+	'fvila'       => '#(\d+\-)(\d+)(\.ts)#',  // Freek Vonk In Latijns-Amerika
+	'hunt'        => '#(\d+\-)(\d+)(\.ts)#',  // The Hunt
 );
 
 $type = @$_SERVER['argv'][1];
@@ -17,7 +18,11 @@ echo "\n";
 
 if ( !$type || !$name || !$base || !isset($regexes[$type]) || !preg_match('#https?://#', $base) ) {
 	echo "Call: `php download.php TYPE FILENAME URL`\n\n";
-	exit;
+	echo "TYPE:      " . implode(', ', array_keys($regexes)) . "\n";
+	echo "FILENAME:  Any valid filename, *without* the extension (.ts)\n";
+	echo "URL:       Full .ts URL of any part. Use the bookmarklet to get it\n";
+	echo "\n";
+	exit(1);
 }
 
 $base = preg_replace($regexes[$type], '$1%%%$3', $base);
