@@ -10,9 +10,11 @@ $regexes = array(
 	'hunt'        => '#(\d+\-)(\d+)(\.ts)#',  // The Hunt
 );
 
-$type = @$_SERVER['argv'][1];
-$name = @$_SERVER['argv'][2];
-$base = @$_SERVER['argv'][3];
+$args = @$_SERVER['argv'] ?: array();
+
+$type = @$args[1];
+$name = @$args[2];
+$base = @$args[3];
 
 echo "\n";
 
