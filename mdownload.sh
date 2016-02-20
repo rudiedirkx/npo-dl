@@ -22,7 +22,7 @@ while [ "$line" != "" ]; do
 	#
 
 	# Add to queue
-	echo "$type $type-$line" >> ./.queue
+	echo "$type $line" >> ./.queue
 
 	# Run queue
 	if [ $first -eq 1 ]; then

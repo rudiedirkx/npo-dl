@@ -8,6 +8,8 @@ $regexes = array(
 	'fevdw'       => '#(\d+\-)(\d+)(\.ts)#',  // Floortje naar het Einde Van De Wereld
 	'fvila'       => '#(\d+\-)(\d+)(\.ts)#',  // Freek Vonk In Latijns-Amerika
 	'hunt'        => '#(\d+\-)(\d+)(\.ts)#',  // The Hunt
+	'yangtze'     => '#(\d+\-)(\d+)(\.ts)#',  // Langs de oevers van de Yangtze
+	'zembla'      => '#(\d+\-)(\d+)(\.ts)#',  // Zembla
 );
 
 $args = @$_SERVER['argv'] ?: array();
@@ -38,6 +40,9 @@ if ( !is_dir($chunkCacheDir) && !@mkdir($chunkCacheDir) ) {
 }
 
 echo $chunkCacheDir . "\n\n";
+
+$videoFile = preg_replace('#\.ts$#', '', $type . '-' . $name) . '.ts';
+echo "Downloading into $videoFile\n\n";
 
 $chunks = [];
 for ( $i = 1; $i <= 500; $i++ ) {
@@ -86,9 +91,8 @@ for ( $i = 1; $i <= 500; $i++ ) {
 	flush();
 }
 
-echo "\n\nCombining into one .ts file...\n\n";
+echo "\n\nCombining into $videoFile ...\n\n";
 
-$videoFile = preg_replace('#\.ts$#', '', $name) . '.ts';
 $_start = microtime(1);
 
 // Use file_(get|put)_contents()

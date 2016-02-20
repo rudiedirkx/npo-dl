@@ -17,7 +17,7 @@ done
 
 PHP=$(which php)
 for data in "${downloads[@]}"; do
-	cmd="$PHP download.php $type $type-$data"
+	cmd="$PHP download.php $type $data"
 	$cmd
 	echo
 done
