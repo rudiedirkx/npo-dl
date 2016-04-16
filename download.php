@@ -10,6 +10,7 @@ $regexes = array(
 	'hunt'        => '#(\d+\-)(\d+)(\.ts)#',  // The Hunt
 	'yangtze'     => '#(\d+\-)(\d+)(\.ts)#',  // Langs de oevers van de Yangtze
 	'zembla'      => '#(\d+\-)(\d+)(\.ts)#',  // Zembla
+	'katjas'      => '#(\d+\-)(\d+)(\.ts)#',  // Katja's bodyscan
 );
 
 $args = @$_SERVER['argv'] ?: array();
