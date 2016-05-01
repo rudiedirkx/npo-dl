@@ -11,6 +11,8 @@ $regexes = array(
 	'yangtze'     => '#(\d+\-)(\d+)(\.ts)#',  // Langs de oevers van de Yangtze
 	'zembla'      => '#(\d+\-)(\d+)(\.ts)#',  // Zembla
 	'katjas'      => '#(\d+\-)(\d+)(\.ts)#',  // Katja's bodyscan
+	'noordzuid'   => '#(\d+\-)(\d+)(\.ts)#',  // Noord-Zuid
+	'demol'       => '#(\d+\-)(\d+)(\.ts)#',  // Wie Is De Mol?
 );
 
 $args = @$_SERVER['argv'] ?: array();
