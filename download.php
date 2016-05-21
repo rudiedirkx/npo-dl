@@ -13,6 +13,7 @@ $regexes = array(
 	'katjas'      => '#(\d+\-)(\d+)(\.ts)#',  // Katja's bodyscan
 	'noordzuid'   => '#(\d+\-)(\d+)(\.ts)#',  // Noord-Zuid
 	'demol'       => '#(\d+\-)(\d+)(\.ts)#',  // Wie Is De Mol?
+    'fstropers'   => '#(\d+\-)(\d+)(\.ts)#', // Freek tegen Stropers
 );
 
 $args = @$_SERVER['argv'] ?: array();
