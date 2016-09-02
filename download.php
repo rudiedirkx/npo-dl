@@ -3,17 +3,7 @@
 $cacheDir = __DIR__ . '/cache/';
 $regexes = array(
 	'dailymotion' => '#(frag\()(\d+)(\))#',   // DailyMotion
-	'tegenlicht'  => '#(\d+\-)(\d+)(\.ts)#',  // Tegenlicht
-	'dwdd'        => '#(\d+\-)(\d+)(\.ts)#',  // De Wereld Draait Door
-	'fevdw'       => '#(\d+\-)(\d+)(\.ts)#',  // Floortje naar het Einde Van De Wereld
-	'fvila'       => '#(\d+\-)(\d+)(\.ts)#',  // Freek Vonk In Latijns-Amerika
-	'hunt'        => '#(\d+\-)(\d+)(\.ts)#',  // The Hunt
-	'yangtze'     => '#(\d+\-)(\d+)(\.ts)#',  // Langs de oevers van de Yangtze
-	'zembla'      => '#(\d+\-)(\d+)(\.ts)#',  // Zembla
-	'katjas'      => '#(\d+\-)(\d+)(\.ts)#',  // Katja's bodyscan
-	'noordzuid'   => '#(\d+\-)(\d+)(\.ts)#',  // Noord-Zuid
-	'demol'       => '#(\d+\-)(\d+)(\.ts)#',  // Wie Is De Mol?
-    'fstropers'   => '#(\d+\-)(\d+)(\.ts)#', // Freek tegen Stropers
+    'tegenlicht'  => '#(\d+\-)(\d+)(\.ts)#',  // Tegenlicht
 );
 
 $args = @$_SERVER['argv'] ?: array();
@@ -24,7 +14,7 @@ $base = @$args[3];
 
 echo "\n";
 
-if ( !$type || !$name || !$base || !isset($regexes[$type]) || !preg_match('#https?://#', $base) ) {
+if ( !$type || !$name || !$base || !preg_match('#https?://#', $base) ) {
 	echo "Call: `php download.php TYPE FILENAME URL`\n\n";
 	echo "TYPE:      " . implode(', ', array_keys($regexes)) . "\n";
 	echo "FILENAME:  Any valid filename, *without* the extension (.ts)\n";
@@ -33,7 +23,7 @@ if ( !$type || !$name || !$base || !isset($regexes[$type]) || !preg_match('#http
 	exit(1);
 }
 
-$base = preg_replace($regexes[$type], '$1%%%$3', $base);
+$base = preg_replace(@$regexes[$type] ?: $regexes['tegenlicht'], '$1%%%$3', $base);
 echo "$base\n\n";
 
 $ua = @$_SERVER['HTTP_USER_AGENT'] ?: 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36';
