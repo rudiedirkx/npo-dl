@@ -38,6 +38,7 @@ echo $chunkCacheDir . "\n\n";
 $videoFile = preg_replace('#\.ts$#', '', $type . '-' . $name) . '.ts';
 echo "Downloading into $videoFile\n\n";
 
+$mb = 0;
 $chunks = [];
 for ( $i = 1; $i <= 500; $i++ ) {
 	$url = str_replace('%%%', $i, $base);
@@ -73,12 +74,14 @@ for ( $i = 1; $i <= 500; $i++ ) {
 		}
 
 		$_took = microtime(1) - $_time;
-		$status = 'downloaded in ' . round($_took * 1000) . ' ms';
+		$status = sprintf('downloaded in %4d ms', round($_took * 1000));
 
-		usleep(250000);
+		usleep(rand(1, 250) * 1000);
 	}
 
-	echo "$i - $status\n";
+	$mb += filesize($chunkCacheDir . $cacheFile) / 1e6;
+
+	echo sprintf("%3d - $status | %5.1d MB\n", $i, $mb);
 
 	$chunks[] = $cacheFile;
 
