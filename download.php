@@ -40,7 +40,7 @@ echo "Downloading into $videoFile\n\n";
 
 $mb = 0;
 $chunks = [];
-for ( $i = 1; $i <= 500; $i++ ) {
+for ( $i = 1; $i <= 1500; $i++ ) {
 	$url = str_replace('%%%', $i, $base);
 	$_file = sha1($url) . '.ts';
 	$cacheFile = sprintf('%04d_%s', $i, $_file);
