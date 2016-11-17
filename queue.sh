@@ -1,5 +1,4 @@
 # Start line loop
-#while [ "$line" != "" ]; do
 while true; do
 
 	# Read line 1
@@ -7,13 +6,14 @@ while true; do
 	echo $line
 
 	if [ "$line" != "" ]; then
-		# Remove line 1
-		sed -i '1d' ./.queue
-
 		# Call the download script
 		/usr/bin/env php download.php $line
+
+		# Remove line 1
+		sed -i '1d' ./.queue
 	else
-		echo "Queue empty"
+		now=$(date)
+		echo "Queue empty $now"
 	fi
 
 	sleep 2
