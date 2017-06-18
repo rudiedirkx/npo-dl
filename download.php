@@ -30,7 +30,8 @@ $ua = @$_SERVER['HTTP_USER_AGENT'] ?: 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/
 
 $chunkCacheDir = $cacheDir . sha1($base) . '/';
 if ( !is_dir($chunkCacheDir) && !@mkdir($chunkCacheDir) ) {
-	exit("Can't create chunk cache dir\n");
+	echo "\nCan't create chunk cache dir\n";
+	exit(1);
 }
 
 echo $chunkCacheDir . "\n\n";
@@ -59,18 +60,34 @@ for ( $i = 1; $i <= 1500; $i++ ) {
 			CURLOPT_URL => $url,
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_USERAGENT => $ua,
+			// CURLOPT_HTTPHEADER => array(
+			// 	'Origin: http://media-service.vara.nl',
+			// 	'Referer: http://media-service.vara.nl/player.php?id=369939&e=1&int=1&c=1',
+			// 	'Accept: */*',
+			// 	'Accept-Encoding: gzip, deflate, sdch, br',
+			// 	'Accept-Language: en-US,en;q=0.8',
+			// 	'Cache-Control: no-cache',
+			// 	'Connection: keep-alive',
+			// 	'Pragma: no-cache',
+			// ),
 		));
 		$data = curl_exec($ch);
 		$info = curl_getinfo($ch);
 		curl_close($ch);
 
 		if ( $info['http_code'] != 200 ) {
+			if ($i == 1) {
+				echo "\nFailed to download part 1. Giving up.\n\n";
+				exit(1);
+			}
+
 			echo "\nDone downloading?\n\n";
 			break;
 		}
 
 		if ( !@file_put_contents($chunkCacheDir . $cacheFile, $data) ) {
-			exit("Can't cache chunk # $i\n");
+			echo "\nCan't cache chunk # $i\n";
+			exit(1);
 		}
 
 		$_took = microtime(1) - $_time;
